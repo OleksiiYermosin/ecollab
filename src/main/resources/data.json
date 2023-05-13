@@ -6409,8 +6409,7 @@
       "CQRS"
     ],
 	"directions": [
-	  "Microservices",
-	  "DistributedSystems"
+	  "Microservices"
 	]
   },
   {
