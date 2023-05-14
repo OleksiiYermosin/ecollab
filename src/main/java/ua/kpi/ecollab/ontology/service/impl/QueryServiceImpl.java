@@ -71,12 +71,12 @@ public class QueryServiceImpl implements QueryService {
     return works;
   }
 
-  public Set<String> getDirectRootDirections(String direction) {
+  public Set<String> getDirectSubDirections(String direction) {
     return ontologyManager.findDirectSubDirections(direction);
   }
 
-  public Set<String> getRoots() {
-    return ontologyManager.getRootProperties();
+  public String getRootDirection() {
+    return ontologyManager.getRootDirection();
   }
 
   private int findDetails(

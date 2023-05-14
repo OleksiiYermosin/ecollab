@@ -7,5 +7,7 @@ import java.util.Set;
 public interface QueryService {
     Set<UserWorkEntity> processQuery(String query);
 
-    Set<String> getDirectRootDirections(String direction);
+    String getRootDirection();
+
+    Set<String> getDirectSubDirections(String direction);
 }

@@ -60,6 +60,24 @@ public class OntologyManager {
     return processResults(query);
   }
 
+  public String getRootDirection() {
+    String queryString =
+            """
+                  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                  PREFIX owl: <http://www.w3.org/2002/07/owl#>
+                  PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+                  PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                  PREFIX ecollab: <http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#>
+                  SELECT ?direction ?value
+                  WHERE {
+                     ?direction rdf:type ecollab:Direction .
+                     ?direction ?property ?value .
+                     FILTER(?property in (ecollab:isPrimaryDirection))
+                  }""";
+    Query query = QueryFactory.create(queryString);
+    return processResults(query).stream().findFirst().orElseThrow(() -> new RuntimeException("Root direction was not found"));
+  }
+
   private Set<String> processResults(Query query) {
     Set<String> resultList = new HashSet<>();
     try (QueryExecution queryExecution = QueryExecutionFactory.create(query, infModel)) {

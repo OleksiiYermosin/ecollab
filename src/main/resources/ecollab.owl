@@ -87,6 +87,12 @@
     
 
 
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#isPrimaryDirection -->
+
+    <ObjectProperty rdf:about="&ecollab;isPrimaryDirection"/>
+    
+
+
     <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#isRootDirection -->
 
     <ObjectProperty rdf:about="&ecollab;isRootDirection">
@@ -314,6 +320,7 @@
 
     <NamedIndividual rdf:about="&ecollab;BusinessIntelligence">
         <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;Directions"/>
     </NamedIndividual>
     
 
@@ -385,6 +392,7 @@
 
     <NamedIndividual rdf:about="&ecollab;CloudServices">
         <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;Directions"/>
     </NamedIndividual>
     
 
@@ -551,6 +559,15 @@
     
 
 
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#Directions -->
+
+    <NamedIndividual rdf:about="&ecollab;Directions">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:isPrimaryDirection rdf:resource="&ecollab;Directions"/>
+    </NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#DiscreteMathematics -->
 
     <NamedIndividual rdf:about="&ecollab;DiscreteMathematics">
@@ -609,6 +626,7 @@
 
     <NamedIndividual rdf:about="&ecollab;EmbeddedSystems">
         <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;Directions"/>
         <ecollab:hasSubDirection rdf:resource="&ecollab;Microcontrollers"/>
     </NamedIndividual>
     
@@ -618,6 +636,7 @@
 
     <NamedIndividual rdf:about="&ecollab;EnergyIndustry">
         <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;Directions"/>
     </NamedIndividual>
     
 
@@ -752,6 +771,7 @@
 
     <NamedIndividual rdf:about="&ecollab;InformationSystems">
         <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;Directions"/>
     </NamedIndividual>
     
 
@@ -760,6 +780,7 @@
 
     <NamedIndividual rdf:about="&ecollab;IoT">
         <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;Directions"/>
     </NamedIndividual>
     
 
@@ -876,6 +897,7 @@
 
     <NamedIndividual rdf:about="&ecollab;NetworkModel">
         <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;Directions"/>
     </NamedIndividual>
     
 
@@ -1055,6 +1077,7 @@
 
     <NamedIndividual rdf:about="&ecollab;ScientificStudies">
         <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;Directions"/>
     </NamedIndividual>
     
 

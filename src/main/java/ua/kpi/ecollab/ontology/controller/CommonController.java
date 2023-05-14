@@ -38,12 +38,20 @@ public class CommonController {
   }
 
   @GetMapping(path = ONTOLOGY_SERVICE + "/runQuery", produces = "application/json")
+  @CrossOrigin(origins = "http://localhost:3000")
   public Set<UserWorkEntity> readOntology() {
     return queryService.processQuery("(DistributedSystems)*");
   }
 
-  @GetMapping(path = ONTOLOGY_SERVICE + "/getDirectRootDirection", produces = "application/json")
-  public Set<String> readDirectRootDirection() {
-    return queryService.getDirectRootDirections("Databases");
+  @GetMapping(path = ONTOLOGY_SERVICE + "/getRootDirection", produces = "application/json")
+  @CrossOrigin(origins = "http://localhost:3000")
+  public String readDirectRootDirection() {
+    return "{\"direction\" : \"" + queryService.getRootDirection() + "\"}";
+  }
+
+  @GetMapping(path = ONTOLOGY_SERVICE + "/getDirectSubDirections/{direction}", produces = "application/json")
+  @CrossOrigin(origins = "http://localhost:3000")
+  public Set<String> readSubDirections(@PathVariable String direction) {
+    return queryService.getDirectSubDirections(direction);
   }
 }
