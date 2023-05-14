@@ -31,7 +31,7 @@ public class OntologyManager {
           PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
           PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
           PREFIX ecollab: <http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#>
-          SELECT ?direction ?value
+          SELECT ?value
           WHERE {
              ?direction rdf:type ecollab:Direction .
              ?direction ecollab:hasSubDirection ?value .
@@ -45,17 +45,17 @@ public class OntologyManager {
     direction = "ecollab:" + direction;
     String queryString =
         """
-              PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-              PREFIX owl: <http://www.w3.org/2002/07/owl#>
-              PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-              PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-              PREFIX ecollab: <http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#>
-              SELECT ?direction ?value
-              WHERE {
-                 ?direction rdf:type ecollab:Direction .
-                 ?direction ecollab:hasDirectSubDirection ?value .
-                 FILTER(?direction in (%s))
-              }""";
+                PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                PREFIX owl: <http://www.w3.org/2002/07/owl#>
+                PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+                PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                PREFIX ecollab: <http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#>
+                SELECT ?value
+                WHERE {
+                   ?direction rdf:type ecollab:Direction .
+                   ?direction ecollab:hasDirectSubDirection ?value .
+                   FILTER (?direction = %s)
+                }""";
     Query query = QueryFactory.create(String.format(queryString, direction));
     return processResults(query);
   }
@@ -63,17 +63,16 @@ public class OntologyManager {
   public String getRootDirection() {
     String queryString =
             """
-                  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-                  PREFIX owl: <http://www.w3.org/2002/07/owl#>
-                  PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-                  PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-                  PREFIX ecollab: <http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#>
-                  SELECT ?direction ?value
-                  WHERE {
-                     ?direction rdf:type ecollab:Direction .
-                     ?direction ?property ?value .
-                     FILTER(?property in (ecollab:isPrimaryDirection))
-                  }""";
+                    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                    PREFIX owl: <http://www.w3.org/2002/07/owl#>
+                    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                    PREFIX ecollab: <http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#>
+                    SELECT ?value
+                    WHERE {
+                       ?value rdf:type ecollab:Direction .
+                       FILTER NOT EXISTS { ?value ecollab:isSubDirection|ecollab:isDirectSubDirection ?subDirection }
+                    }""";
     Query query = QueryFactory.create(queryString);
     return processResults(query).stream().findFirst().orElseThrow(() -> new RuntimeException("Root direction was not found"));
   }

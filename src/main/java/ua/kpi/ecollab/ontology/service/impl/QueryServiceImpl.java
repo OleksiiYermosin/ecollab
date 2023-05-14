@@ -68,6 +68,9 @@ public class QueryServiceImpl implements QueryService {
         }
       }
     }
+    if (!literalBuilder.isEmpty()) {
+      findDetails(Set.of(literalBuilder.toString()), works, query.length(), query, true);
+    }
     return works;
   }
 
