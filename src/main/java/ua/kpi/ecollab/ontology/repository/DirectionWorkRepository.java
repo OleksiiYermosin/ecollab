@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 import ua.kpi.ecollab.ontology.entity.DirectionWorkMappingEntity;
 import ua.kpi.ecollab.ontology.entity.DirectionWorkMappingEntityId;
 
-import java.util.List;
 import java.util.Set;
 
 @Repository
@@ -37,7 +36,7 @@ public interface DirectionWorkRepository
                   SELECT work_id
                   FROM directions_works
                   GROUP BY work_id
-                  HAVING array_agg(direction_id ORDER BY direction_id) <@
+                  HAVING array_agg(direction_id ORDER BY direction_id) @>
                          (SELECT id
                           FROM (SELECT array_agg(id ORDER BY id) AS id, 1 AS g
                                 FROM directions

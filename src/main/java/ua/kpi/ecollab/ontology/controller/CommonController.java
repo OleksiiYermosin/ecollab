@@ -39,8 +39,8 @@ public class CommonController {
 
   @GetMapping(path = ONTOLOGY_SERVICE + "/runQuery", produces = "application/json")
   @CrossOrigin(origins = "http://localhost:3000")
-  public Set<UserWorkEntity> readOntology() {
-    return queryService.processQuery("(DistributedSystems)*");
+  public Set<UserWorkEntity> runQuery(@RequestParam String query) {
+    return queryService.processQuery(query);
   }
 
   @GetMapping(path = ONTOLOGY_SERVICE + "/getRootDirection", produces = "application/json")

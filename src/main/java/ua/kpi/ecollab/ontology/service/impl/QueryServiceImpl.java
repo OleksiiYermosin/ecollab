@@ -63,13 +63,13 @@ public class QueryServiceImpl implements QueryService {
           bracketsModeEnabled = false;
           bracketsList = new LinkedHashSet<>();
         } else {
-          i = findDetails(Set.of(literalBuilder.toString()), works, i, query, true);
+          i = findDetails(new HashSet<>(List.of(literalBuilder.toString())), works, i, query, true);
           literalBuilder = new StringBuilder();
         }
       }
     }
     if (!literalBuilder.isEmpty()) {
-      findDetails(Set.of(literalBuilder.toString()), works, query.length(), query, true);
+      findDetails(new HashSet<>(List.of(literalBuilder.toString())), works, query.length(), query, true);
     }
     return works;
   }
