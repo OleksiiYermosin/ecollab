@@ -36,7 +36,7 @@ public interface DirectionWorkRepository
                   SELECT work_id
                   FROM directions_works
                   GROUP BY work_id
-                  HAVING array_agg(direction_id ORDER BY direction_id) @>
+                  HAVING array_agg(direction_id ORDER BY direction_id) &&
                          (SELECT id
                           FROM (SELECT array_agg(id ORDER BY id) AS id, 1 AS g
                                 FROM directions

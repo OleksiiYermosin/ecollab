@@ -31,6 +31,7 @@ public class CommonController {
       consumes = "application/json",
       produces = "application/json")
   @ResponseStatus(HttpStatus.CREATED)
+  @CrossOrigin(origins = "http://localhost:3000")
   public List<RecordDto> readJson() {
     List<RecordDto> records = uploadService.readJsonFile();
     uploadService.saveRecords(records);

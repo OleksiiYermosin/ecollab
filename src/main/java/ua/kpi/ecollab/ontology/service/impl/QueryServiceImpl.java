@@ -14,8 +14,8 @@ import java.util.function.Function;
 @Service
 public class QueryServiceImpl implements QueryService {
 
-  private static final Set<Character> RESERVED_KEYS = Set.of('(', ')', '&', '|', '*', '#', '!');
-  private static final Set<Character> TRIGGERS = Set.of('*', '#', '!');
+  private static final Set<Character> RESERVED_KEYS = Set.of('(', ')', '+', '$', '*', '@', '!');
+  private static final Set<Character> TRIGGERS = Set.of('*', '@', '!');
   private static final int AUTHOR = 0;
 
   private final DirectionWorkRepository directionWorkRepository;
@@ -42,11 +42,11 @@ public class QueryServiceImpl implements QueryService {
     for (int i = 0; i < query.toCharArray().length; i++) {
       if (!RESERVED_KEYS.contains(query.charAt(i))) {
         literalBuilder.append(query.charAt(i));
-      } else if (query.charAt(i) == '&') {
+      } else if (query.charAt(i) == '+') {
         isAnd = true;
         bracketsList.add(literalBuilder.toString());
         literalBuilder = new StringBuilder();
-      } else if (query.charAt(i) == '|') {
+      } else if (query.charAt(i) == '$') {
         isAnd = false;
         bracketsList.add(literalBuilder.toString());
         literalBuilder = new StringBuilder();
@@ -70,6 +70,9 @@ public class QueryServiceImpl implements QueryService {
     }
     if (!literalBuilder.isEmpty()) {
       findDetails(new HashSet<>(List.of(literalBuilder.toString())), works, query.length(), query, true);
+    }
+    if (!bracketsList.isEmpty()) {
+      findDetails(new HashSet<>(bracketsList), works, query.length(), query, true);
     }
     return works;
   }
@@ -95,10 +98,10 @@ public class QueryServiceImpl implements QueryService {
       if (query.charAt(i) == '*') {
         isGlobalMode = true;
       }
-      if (query.charAt(i) == '#') {
+      if (query.charAt(i) == '@') {
         isStrictMode = true;
       }
-      if (query.charAt(i) == '!' || i + 1 == query.length()) {
+      if (query.charAt(i) == '!') {
         break;
       }
     }

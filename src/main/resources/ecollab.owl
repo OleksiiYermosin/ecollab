@@ -87,12 +87,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#isPrimaryDirection -->
-
-    <ObjectProperty rdf:about="&ecollab;isPrimaryDirection"/>
-    
-
-
     <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#isRootDirection -->
 
     <ObjectProperty rdf:about="&ecollab;isRootDirection">
@@ -563,7 +557,6 @@
 
     <NamedIndividual rdf:about="&ecollab;Directions">
         <rdf:type rdf:resource="&ecollab;Direction"/>
-        <ecollab:isPrimaryDirection rdf:resource="&ecollab;Directions"/>
     </NamedIndividual>
     
 
@@ -1154,9 +1147,9 @@
     
 
 
-    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#TCP/IP -->
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#TCP -->
 
-    <NamedIndividual rdf:about="&ecollab;TCP/IP">
+    <NamedIndividual rdf:about="&ecollab;TCP">
         <rdf:type rdf:resource="&ecollab;Direction"/>
         <ecollab:hasDirectRootDirection rdf:resource="&ecollab;NetworkModel"/>
     </NamedIndividual>
