@@ -1,0 +1,1215 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ecollab "http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.w3.org/2002/07/owl"
+     xmlns:ecollab="http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <Ontology rdf:about="http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab">
+        <rdfs:comment>Ontology for the ECollab application</rdfs:comment>
+    </Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#hasDirectRootDirection -->
+
+    <ObjectProperty rdf:about="&ecollab;hasDirectRootDirection">
+        <rdfs:subPropertyOf rdf:resource="&ecollab;hasRootDirection"/>
+        <inverseOf rdf:resource="&ecollab;isDirectRootDirection"/>
+        <equivalentProperty rdf:resource="&ecollab;isDirectSubDirection"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#hasDirectSubDirection -->
+
+    <ObjectProperty rdf:about="&ecollab;hasDirectSubDirection">
+        <rdfs:subPropertyOf rdf:resource="&ecollab;hasSubDirection"/>
+        <equivalentProperty rdf:resource="&ecollab;isDirectRootDirection"/>
+        <inverseOf rdf:resource="&ecollab;isDirectSubDirection"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#hasRootDirection -->
+
+    <ObjectProperty rdf:about="&ecollab;hasRootDirection">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#hasSubDirection -->
+
+    <ObjectProperty rdf:about="&ecollab;hasSubDirection">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#isDirectRootDirection -->
+
+    <ObjectProperty rdf:about="&ecollab;isDirectRootDirection">
+        <rdfs:subPropertyOf rdf:resource="&ecollab;isRootDirection"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#isDirectSubDirection -->
+
+    <ObjectProperty rdf:about="&ecollab;isDirectSubDirection">
+        <rdfs:subPropertyOf rdf:resource="&ecollab;isSubDirection"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#isRootDirection -->
+
+    <ObjectProperty rdf:about="&ecollab;isRootDirection">
+        <inverseOf rdf:resource="&ecollab;hasRootDirection"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#isSubDirection -->
+
+    <ObjectProperty rdf:about="&ecollab;isSubDirection">
+        <inverseOf rdf:resource="&ecollab;hasSubDirection"/>
+    </ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#Article -->
+
+    <Class rdf:about="&ecollab;Article">
+        <rdfs:subClassOf rdf:resource="&ecollab;ScientificWorkType"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#BachelorThesis -->
+
+    <Class rdf:about="&ecollab;BachelorThesis">
+        <rdfs:subClassOf rdf:resource="&ecollab;Thesis"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#Direction -->
+
+    <Class rdf:about="&ecollab;Direction"/>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#LearningObject -->
+
+    <Class rdf:about="&ecollab;LearningObject">
+        <rdfs:subClassOf rdf:resource="&ecollab;ScientificWorkType"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#MasterThesis -->
+
+    <Class rdf:about="&ecollab;MasterThesis">
+        <rdfs:subClassOf rdf:resource="&ecollab;Thesis"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#MethodicalMaterial -->
+
+    <Class rdf:about="&ecollab;MethodicalMaterial">
+        <rdfs:subClassOf rdf:resource="&ecollab;ScientificWorkType"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#ScientificWorkType -->
+
+    <Class rdf:about="&ecollab;ScientificWorkType"/>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#TechnicalReport -->
+
+    <Class rdf:about="&ecollab;TechnicalReport">
+        <rdfs:subClassOf rdf:resource="&ecollab;ScientificWorkType"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#Thesis -->
+
+    <Class rdf:about="&ecollab;Thesis">
+        <rdfs:subClassOf rdf:resource="&ecollab;ScientificWorkType"/>
+    </Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#3DModeling -->
+
+    <NamedIndividual rdf:about="&ecollab;3DModeling">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;ComputerModeling"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#Acoustics -->
+
+    <NamedIndividual rdf:about="&ecollab;Acoustics">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;ClassicalPhysics"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#Aerodynamics -->
+
+    <NamedIndividual rdf:about="&ecollab;Aerodynamics">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;Mechanics"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#AgentFunction -->
+
+    <NamedIndividual rdf:about="&ecollab;AgentFunction">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;AppliedMathematics"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#AgentProgram -->
+
+    <NamedIndividual rdf:about="&ecollab;AgentProgram">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;AgentFunction"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#AlgorithmsAndDataStructures -->
+
+    <NamedIndividual rdf:about="&ecollab;AlgorithmsAndDataStructures">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;Mathematics"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#AnalyticGeometry -->
+
+    <NamedIndividual rdf:about="&ecollab;AnalyticGeometry">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;Geometry"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#AndroidDevelopment -->
+
+    <NamedIndividual rdf:about="&ecollab;AndroidDevelopment">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;MobileAppDevelopment"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#AppliedMathematics -->
+
+    <NamedIndividual rdf:about="&ecollab;AppliedMathematics">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;Mathematics"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#ArtificialIntelligence -->
+
+    <NamedIndividual rdf:about="&ecollab;ArtificialIntelligence">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;ComputerScience"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#Bibliography -->
+
+    <NamedIndividual rdf:about="&ecollab;Bibliography">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;ScientificStudies"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#BigData -->
+
+    <NamedIndividual rdf:about="&ecollab;BigData">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;DataScience"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#Blockchain -->
+
+    <NamedIndividual rdf:about="&ecollab;Blockchain">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;DistributedSystems"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#BusinessIntelligence -->
+
+    <NamedIndividual rdf:about="&ecollab;BusinessIntelligence">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;Directions"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#CAD -->
+
+    <NamedIndividual rdf:about="&ecollab;CAD">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;ComputerModeling"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#Chemistry -->
+
+    <NamedIndividual rdf:about="&ecollab;Chemistry">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;ScientificStudies"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#ClassicalPhysics -->
+
+    <NamedIndividual rdf:about="&ecollab;ClassicalPhysics">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;ScientificStudies"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#Classification -->
+
+    <NamedIndividual rdf:about="&ecollab;Classification">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;SupervisedLearning"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#ClientServerModel -->
+
+    <NamedIndividual rdf:about="&ecollab;ClientServerModel">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;SoftwareArchitecture"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#CloudComputing -->
+
+    <NamedIndividual rdf:about="&ecollab;CloudComputing">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;CloudServices"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#CloudDatabases -->
+
+    <NamedIndividual rdf:about="&ecollab;CloudDatabases">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;CloudComputing"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#CloudServices -->
+
+    <NamedIndividual rdf:about="&ecollab;CloudServices">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;Directions"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#CloudStorages -->
+
+    <NamedIndividual rdf:about="&ecollab;CloudStorages">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;CloudComputing"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#Clustering -->
+
+    <NamedIndividual rdf:about="&ecollab;Clustering">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;UnsupervisedLearning"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#ComputerArchitecture -->
+
+    <NamedIndividual rdf:about="&ecollab;ComputerArchitecture">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;ComputerScience"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#ComputerModeling -->
+
+    <NamedIndividual rdf:about="&ecollab;ComputerModeling">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;AppliedMathematics"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#ComputerScience -->
+
+    <NamedIndividual rdf:about="&ecollab;ComputerScience">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;ScientificStudies"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#ComputerSimulation -->
+
+    <NamedIndividual rdf:about="&ecollab;ComputerSimulation">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;ComputerModeling"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#ComputerVision -->
+
+    <NamedIndividual rdf:about="&ecollab;ComputerVision">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;ArtificialIntelligence"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#CrossPlatformSoftware -->
+
+    <NamedIndividual rdf:about="&ecollab;CrossPlatformSoftware">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;SoftwareArchitecture"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#Cryptography -->
+
+    <NamedIndividual rdf:about="&ecollab;Cryptography">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;Security"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#DataAnalysis -->
+
+    <NamedIndividual rdf:about="&ecollab;DataAnalysis">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;DataScience"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#DataCollections -->
+
+    <NamedIndividual rdf:about="&ecollab;DataCollections">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;DataScience"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#DataScience -->
+
+    <NamedIndividual rdf:about="&ecollab;DataScience">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;ComputerScience"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#DataVisualization -->
+
+    <NamedIndividual rdf:about="&ecollab;DataVisualization">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;DataScience"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#Databases -->
+
+    <NamedIndividual rdf:about="&ecollab;Databases">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;DataCollections"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#DecisionTheory -->
+
+    <NamedIndividual rdf:about="&ecollab;DecisionTheory">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;Mathematics"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#DeclarativeProgramming -->
+
+    <NamedIndividual rdf:about="&ecollab;DeclarativeProgramming">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;ProgrammingParadigms"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#DesktopDevelopment -->
+
+    <NamedIndividual rdf:about="&ecollab;DesktopDevelopment">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;SoftwareArchitecture"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#DevOps -->
+
+    <NamedIndividual rdf:about="&ecollab;DevOps">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;ComputerScience"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#Directions -->
+
+    <NamedIndividual rdf:about="&ecollab;Directions">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#DiscreteMathematics -->
+
+    <NamedIndividual rdf:about="&ecollab;DiscreteMathematics">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;Mathematics"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#DistributedDatabases -->
+
+    <NamedIndividual rdf:about="&ecollab;DistributedDatabases">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;Databases"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#DistributedSystems -->
+
+    <NamedIndividual rdf:about="&ecollab;DistributedSystems">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;ComputerScience"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#Ecology -->
+
+    <NamedIndividual rdf:about="&ecollab;Ecology">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;ScientificStudies"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#Economy -->
+
+    <NamedIndividual rdf:about="&ecollab;Economy">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;ScientificStudies"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#EducationalSystems -->
+
+    <NamedIndividual rdf:about="&ecollab;EducationalSystems">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;InformationSystems"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#EmbeddedSystems -->
+
+    <NamedIndividual rdf:about="&ecollab;EmbeddedSystems">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;Directions"/>
+        <ecollab:hasSubDirection rdf:resource="&ecollab;Microcontrollers"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#EnergyIndustry -->
+
+    <NamedIndividual rdf:about="&ecollab;EnergyIndustry">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;Directions"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#ExpertSystems -->
+
+    <NamedIndividual rdf:about="&ecollab;ExpertSystems">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;ArtificialIntelligence"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#FinancialSystems -->
+
+    <NamedIndividual rdf:about="&ecollab;FinancialSystems">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;InformationSystems"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#FractalGeometry -->
+
+    <NamedIndividual rdf:about="&ecollab;FractalGeometry">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;GeometricModeling"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#GameDevelopment -->
+
+    <NamedIndividual rdf:about="&ecollab;GameDevelopment">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;SoftwareArchitecture"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#GeographicInformationSystems -->
+
+    <NamedIndividual rdf:about="&ecollab;GeographicInformationSystems">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;InformationSystems"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#GeometricModeling -->
+
+    <NamedIndividual rdf:about="&ecollab;GeometricModeling">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;AnalyticGeometry"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#Geometry -->
+
+    <NamedIndividual rdf:about="&ecollab;Geometry">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;Mathematics"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#GraphTheory -->
+
+    <NamedIndividual rdf:about="&ecollab;GraphTheory">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;DiscreteMathematics"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#Hydroacoustics -->
+
+    <NamedIndividual rdf:about="&ecollab;Hydroacoustics">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;Acoustics"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#Hydrodynamics -->
+
+    <NamedIndividual rdf:about="&ecollab;Hydrodynamics">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;Hydromechanics"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#Hydromechanics -->
+
+    <NamedIndividual rdf:about="&ecollab;Hydromechanics">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;ClassicalPhysics"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#IMAP -->
+
+    <NamedIndividual rdf:about="&ecollab;IMAP">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;NetworkModel"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#IOSDevelopment -->
+
+    <NamedIndividual rdf:about="&ecollab;IOSDevelopment">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;MobileAppDevelopment"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#ImageSegmentation -->
+
+    <NamedIndividual rdf:about="&ecollab;ImageSegmentation">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;ComputerVision"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#InformationSystems -->
+
+    <NamedIndividual rdf:about="&ecollab;InformationSystems">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;Directions"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#IoT -->
+
+    <NamedIndividual rdf:about="&ecollab;IoT">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;Directions"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#Jurisprudence -->
+
+    <NamedIndividual rdf:about="&ecollab;Jurisprudence">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;ScientificStudies"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#KnowledgeBases -->
+
+    <NamedIndividual rdf:about="&ecollab;KnowledgeBases">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;DataCollections"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#MachineLearning -->
+
+    <NamedIndividual rdf:about="&ecollab;MachineLearning">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;ArtificialIntelligence"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#Mathematics -->
+
+    <NamedIndividual rdf:about="&ecollab;Mathematics">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;ScientificStudies"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#Mechanics -->
+
+    <NamedIndividual rdf:about="&ecollab;Mechanics">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;ClassicalPhysics"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#MedicalInformationSystems -->
+
+    <NamedIndividual rdf:about="&ecollab;MedicalInformationSystems">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;InformationSystems"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#Microcontrollers -->
+
+    <NamedIndividual rdf:about="&ecollab;Microcontrollers">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;EmbeddedSystems"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#Microservices -->
+
+    <NamedIndividual rdf:about="&ecollab;Microservices">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;DistributedSystems"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#MilitaryInformationSystem -->
+
+    <NamedIndividual rdf:about="&ecollab;MilitaryInformationSystem">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;InformationSystems"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#Minicomputers -->
+
+    <NamedIndividual rdf:about="&ecollab;Minicomputers">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;EmbeddedSystems"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#MobileAppDevelopment -->
+
+    <NamedIndividual rdf:about="&ecollab;MobileAppDevelopment">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;SoftwareArchitecture"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#MultidimensionalAnalysis -->
+
+    <NamedIndividual rdf:about="&ecollab;MultidimensionalAnalysis">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;BusinessIntelligence"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#NetworkModel -->
+
+    <NamedIndividual rdf:about="&ecollab;NetworkModel">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;Directions"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#NeuralNetworks -->
+
+    <NamedIndividual rdf:about="&ecollab;NeuralNetworks">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;SupervisedLearning"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#NumericalMethods -->
+
+    <NamedIndividual rdf:about="&ecollab;NumericalMethods">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;AppliedMathematics"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#OLAP -->
+
+    <NamedIndividual rdf:about="&ecollab;OLAP">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;MultidimensionalAnalysis"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#ObjectDetection -->
+
+    <NamedIndividual rdf:about="&ecollab;ObjectDetection">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;ComputerVision"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#ObjectOrientedDatabses -->
+
+    <NamedIndividual rdf:about="&ecollab;ObjectOrientedDatabses">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;Databases"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#ObjectOrientedProgramming -->
+
+    <NamedIndividual rdf:about="&ecollab;ObjectOrientedProgramming">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;ProgrammingParadigms"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#Ontology -->
+
+    <NamedIndividual rdf:about="&ecollab;Ontology">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;SemanticNetworks"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#OrganizationalSystems -->
+
+    <NamedIndividual rdf:about="&ecollab;OrganizationalSystems">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;InformationSystems"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#PostRelationalDatabases -->
+
+    <NamedIndividual rdf:about="&ecollab;PostRelationalDatabases">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;Databases"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#ProgrammingParadigms -->
+
+    <NamedIndividual rdf:about="&ecollab;ProgrammingParadigms">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;ComputerScience"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#REST -->
+
+    <NamedIndividual rdf:about="&ecollab;REST">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;WebDevelopment"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#ReactiveProgramming -->
+
+    <NamedIndividual rdf:about="&ecollab;ReactiveProgramming">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;ProgrammingParadigms"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#ReferenceDatabases -->
+
+    <NamedIndividual rdf:about="&ecollab;ReferenceDatabases">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;Databases"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#RegressionAnalysis -->
+
+    <NamedIndividual rdf:about="&ecollab;RegressionAnalysis">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;MachineLearning"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#ReinforcementLearning -->
+
+    <NamedIndividual rdf:about="&ecollab;ReinforcementLearning">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;MachineLearning"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#RelationalDatabases -->
+
+    <NamedIndividual rdf:about="&ecollab;RelationalDatabases">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;Databases"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#RenewableEnergy -->
+
+    <NamedIndividual rdf:about="&ecollab;RenewableEnergy">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;EnergyIndustry"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#RiskManagement -->
+
+    <NamedIndividual rdf:about="&ecollab;RiskManagement">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;DecisionTheory"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#Rpc -->
+
+    <NamedIndividual rdf:about="&ecollab;Rpc">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;Microservices"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#ScientificStudies -->
+
+    <NamedIndividual rdf:about="&ecollab;ScientificStudies">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;Directions"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#Security -->
+
+    <NamedIndividual rdf:about="&ecollab;Security">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;SoftwareArchitecture"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#SemanticNetworks -->
+
+    <NamedIndividual rdf:about="&ecollab;SemanticNetworks">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;KnowledgeBases"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#SemanticSearch -->
+
+    <NamedIndividual rdf:about="&ecollab;SemanticSearch">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;SemanticNetworks"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#SoftwareArchitecture -->
+
+    <NamedIndividual rdf:about="&ecollab;SoftwareArchitecture">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;ComputerScience"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#SolarPower -->
+
+    <NamedIndividual rdf:about="&ecollab;SolarPower">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;RenewableEnergy"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#SubjectOrientedProgramming -->
+
+    <NamedIndividual rdf:about="&ecollab;SubjectOrientedProgramming">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;ProgrammingParadigms"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#SupervisedLearning -->
+
+    <NamedIndividual rdf:about="&ecollab;SupervisedLearning">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;MachineLearning"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#SustainableEnergy -->
+
+    <NamedIndividual rdf:about="&ecollab;SustainableEnergy">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;EnergyIndustry"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#TCP -->
+
+    <NamedIndividual rdf:about="&ecollab;TCP">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;NetworkModel"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#Thermodynamics -->
+
+    <NamedIndividual rdf:about="&ecollab;Thermodynamics">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;ClassicalPhysics"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#Translator -->
+
+    <NamedIndividual rdf:about="&ecollab;Translator">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;ComputerArchitecture"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#UnsupervisedLearning -->
+
+    <NamedIndividual rdf:about="&ecollab;UnsupervisedLearning">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;MachineLearning"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#VR -->
+
+    <NamedIndividual rdf:about="&ecollab;VR">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;ComputerSimulation"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#WebDevelopment -->
+
+    <NamedIndividual rdf:about="&ecollab;WebDevelopment">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;SoftwareArchitecture"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/oleksii/ontologies/2023/3/ecollab#WindPower -->
+
+    <NamedIndividual rdf:about="&ecollab;WindPower">
+        <rdf:type rdf:resource="&ecollab;Direction"/>
+        <ecollab:hasDirectRootDirection rdf:resource="&ecollab;RenewableEnergy"/>
+    </NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
