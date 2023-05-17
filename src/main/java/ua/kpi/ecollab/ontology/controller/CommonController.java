@@ -31,7 +31,6 @@ public class CommonController {
       consumes = "application/json",
       produces = "application/json")
   @ResponseStatus(HttpStatus.CREATED)
-  @CrossOrigin(origins = "http://localhost:3000")
   public List<RecordDto> readJson() {
     List<RecordDto> records = uploadService.readJsonFile();
     uploadService.saveRecords(records);
@@ -39,19 +38,16 @@ public class CommonController {
   }
 
   @GetMapping(path = ONTOLOGY_SERVICE + "/runQuery", produces = "application/json")
-  @CrossOrigin(origins = "http://localhost:3000")
   public Set<UserWorkEntity> runQuery(@RequestParam String query) {
     return queryService.processQuery(query);
   }
 
   @GetMapping(path = ONTOLOGY_SERVICE + "/getRootDirection", produces = "application/json")
-  @CrossOrigin(origins = "http://localhost:3000")
   public String readDirectRootDirection() {
     return "{\"direction\" : \"" + queryService.getRootDirection() + "\"}";
   }
 
   @GetMapping(path = ONTOLOGY_SERVICE + "/getDirectSubDirections/{direction}", produces = "application/json")
-  @CrossOrigin(origins = "http://localhost:3000")
   public Set<String> readSubDirections(@PathVariable String direction) {
     return queryService.getDirectSubDirections(direction);
   }
